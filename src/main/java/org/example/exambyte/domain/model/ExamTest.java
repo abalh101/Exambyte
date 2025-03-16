@@ -4,31 +4,37 @@ package org.example.exambyte.domain.model;
 import org.example.exambyte.annotations.AggregateRoot;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @AggregateRoot
 public class ExamTest {
 
-    private LocalDateTime startpunkt;
-    private LocalDateTime endpunkt;
+    private LocalDateTime startzeitpunkt;
+    private LocalDateTime endzeitpunkt;
     private String name;
     private double maximalpunktzahl;
     private final UUID id;
+    private final LocalDateTime ergebnisVeröffentlichungszeitpunkt;
+    private final List<Frage> fragen;
 
-    public ExamTest(LocalDateTime startpunkt, LocalDateTime endpunkt, String name, double maximalpunktzahl, UUID id) {
-        this.startpunkt = startpunkt;
-        this.endpunkt = endpunkt;
+    public ExamTest(LocalDateTime startpunkt, LocalDateTime endpunkt, String name, double maximalpunktzahl, UUID id, LocalDateTime ergebnisVeröffentlichungszeitpunkt, List<Frage> fragen) {
+        this.startzeitpunkt = startpunkt;
+        this.endzeitpunkt = endpunkt;
         this.name = name;
         this.maximalpunktzahl = maximalpunktzahl;
         this.id = id;
+        this.ergebnisVeröffentlichungszeitpunkt = ergebnisVeröffentlichungszeitpunkt;
+        this.fragen = fragen;
     }
 
-    public LocalDateTime getStartpunkt() {
-        return startpunkt;
+    public LocalDateTime getStartzeitpunkt() {
+        return startzeitpunkt;
     }
 
-    public LocalDateTime getEndpunkt() {
-        return endpunkt;
+    public LocalDateTime getEndzeitpunkt() {
+        return endzeitpunkt;
     }
 
     public String getName() {
@@ -43,19 +49,24 @@ public class ExamTest {
         return id;
     }
 
-    public void setStartpunkt(LocalDateTime startpunkt) {
-        this.startpunkt = startpunkt;
+    public LocalDateTime getErgebnisVeröffentlichungszeitpunkt() {
+        return ergebnisVeröffentlichungszeitpunkt;
     }
 
-    public void setEndpunkt(LocalDateTime endpunkt) {
-        this.endpunkt = endpunkt;
+    public List<Frage> getFragen() {
+        return new ArrayList<>(fragen);
+    }
+    public void addFrage(Frage frage) {
+        this.fragen.add(frage);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public boolean isAktiv() {
+        LocalDateTime now = LocalDateTime.now();
+        return now.isAfter(startzeitpunkt) && now.isBefore(endzeitpunkt);
     }
 
-    public void setMaximalpunktzahl(double maximalpunktzahl) {
-        this.maximalpunktzahl = maximalpunktzahl;
+    public boolean isAbgeschlossen() {
+        return LocalDateTime.now().isAfter(endzeitpunkt);
     }
+
 }
