@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testerstellung</title>
+</head>
+<body>
+
+<div>
+    <form method="post" th:action="@{/erstellen}">
+        <div>
+            <label for="testname" > Testname </label>
+            <input id="testname" type="text" required>
+        </div>
+        <div>
+            <label for="startzeitpunkt" > Startzeitpunkt </label>
+            <input id="startzeitpunkt" type="datetime-local" required>
+        </div>
+        <div>
+            <label for="endzeitpunkt" > Endzeitpunkt </label>
+            <input id="endzeitpunkt" type="datetime-local" required>
+        </div>
+        <div>
+            <label for="ergebnisVeröffentlichungszeitpunkt" > ErgebnisVeröffentlichungszeitpunkt </label>
+            <input id="ergebnisVeröffentlichungszeitpunkt" type="datetime-local" required>
+        </div>
+        <div>
+            <label for="maximalpunktzahl" > Maximalpunktzahl </label>
+            <input id="maximalpunktzahl" type="text" required>
+        </div>
+        <div>
+            <form>
+                <div>
+                    <label for="freitextaufgabe" > Fragestellung </label>
+                    <input id="freitextaufgabe" type="text" required>
+                </div>
+
+
+
+            </form>
+        </div>
+
+
+
+
+
+
+    </form>
+</div>
+
+</body>
+</html>
