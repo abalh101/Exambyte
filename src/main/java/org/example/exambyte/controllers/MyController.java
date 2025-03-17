@@ -1,4 +1,4 @@
-package org.example.exambyte.controllers;
+/*package org.example.exambyte.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +29,11 @@ public class MyController {
 
     @GetMapping("/organisator")
     public String organisator() {
-        return "organisator";
+        return "organisator/organisator"; // Korrekte Pfadangabe
     }
 
 
 }
+We dont need this controller for now
+*/
 

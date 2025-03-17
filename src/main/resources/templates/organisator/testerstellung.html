@@ -1,52 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>testerstellung</title>
+    <title>Test erstellen</title>
 </head>
 <body>
 
-<div>
-    <form method="post" th:action="@{/erstellen}">
-        <div>
-            <label for="testname" > Testname </label>
-            <input id="testname" type="text" required>
-        </div>
-        <div>
-            <label for="startzeitpunkt" > Startzeitpunkt </label>
-            <input id="startzeitpunkt" type="datetime-local" required>
-        </div>
-        <div>
-            <label for="endzeitpunkt" > Endzeitpunkt </label>
-            <input id="endzeitpunkt" type="datetime-local" required>
-        </div>
-        <div>
-            <label for="ergebnisVeröffentlichungszeitpunkt" > ErgebnisVeröffentlichungszeitpunkt </label>
-            <input id="ergebnisVeröffentlichungszeitpunkt" type="datetime-local" required>
-        </div>
-        <div>
-            <label for="maximalpunktzahl" > Maximalpunktzahl </label>
-            <input id="maximalpunktzahl" type="text" required>
-        </div>
-        <div>
-            <form>
-                <div>
-                    <label for="freitextaufgabe" > Fragestellung </label>
-                    <input id="freitextaufgabe" type="text" required>
-                </div>
+<h2>Neuen Test erstellen</h2>
 
+<form method="post" th:action="@{/erstellen}" th:object="${testForm}">
+    <div>
+        <label for="testname">Testname:</label>
+        <input id="testname" type="text" th:field="*{testName}" required>
+    </div>
+    <div>
+        <label for="startzeitpunkt">Startzeitpunkt:</label>
+        <input id="startzeitpunkt" type="datetime-local" th:field="*{startzeitpunkt}" required>
+    </div>
+    <div>
+        <label for="endzeitpunkt">Endzeitpunkt:</label>
+        <input id="endzeitpunkt" type="datetime-local" th:field="*{endzeitpunkt}" required>
+    </div>
+    <div>
+        <label for="ergebnisVeröffentlichungszeitpunkt">Ergebnis Veröffentlichungszeitpunkt:</label>
+        <input id="ergebnisVeröffentlichungszeitpunkt" type="datetime-local" th:field="*{ergebnisVeröffentlichungszeitpunkt}" required>
+    </div>
+    <div>
+        <label for="maximalpunktzahl">Maximalpunktzahl:</label>
+        <input id="maximalpunktzahl" type="number" th:field="*{maximalpunktzahl}" required>
+    </div>
+    <div>
+        <label for="fragestellung">Fragestellung:</label>
+        <input id="fragestellung" type="text" th:field="*{fragestellung}" required>
+    </div>
 
-
-            </form>
-        </div>
-
-
-
-
-
-
-    </form>
-</div>
+    <button type="submit">Test erstellen</button>
+</form>
 
 </body>
 </html>
