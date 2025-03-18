@@ -1,6 +1,6 @@
-package org.example.exambyte.db;
+package org.example.exambyte.persestince;
 
-import org.example.exambyte.application.repository.ExamTestRepository;
+import org.example.exambyte.applicationService.repository.ExamTestRepository;
 import org.example.exambyte.domain.model.ExamTest;
 
 import java.util.List;
@@ -8,22 +8,23 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class ExamTestRepositoryImplataion implements ExamTestRepository {
-    TestDAO testDAO;
+    private final ExamTestRepository examTestRepository;
 
-    public ExamTestRepositoryImplataion(TestDAO testDAO) {
-        this.testDAO = testDAO;
-    }
+
+   public ExamTestRepositoryImplataion(ExamTestRepository examTestRepository) {
+       this.examTestRepository = examTestRepository;
+   }
     @Override
     public List<ExamTest> findAll() {
-        return testDAO.findAll();
+        return examTestRepository.findAll();
     }
     @Override
     public void save(ExamTest examTest) {
-        testDAO.save(examTest);
+        examTestRepository.save(examTest);
     }
     @Override
     public void delete(ExamTest examTest) {
-        testDAO.delete(examTest);
+            examTestRepository.delete(examTest);
     }
 
     @Override

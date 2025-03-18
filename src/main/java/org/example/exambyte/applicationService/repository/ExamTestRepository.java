@@ -1,4 +1,4 @@
-package org.example.exambyte.application.repository;
+package org.example.exambyte.applicationService.repository;
 
 import org.example.exambyte.domain.model.ExamTest;
 
