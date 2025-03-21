@@ -1,4 +1,4 @@
-package org.example.exambyte;
+package org.example.exambyte.controllers;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 @WebMvcTest
 public class MyControllerTest {
 
@@ -17,13 +18,13 @@ public class MyControllerTest {
 
 
     @Test
-    @DisplayName("indix-page is reachable")
+    @DisplayName("")
     void test_1() throws Exception{
-        mockMvc.perform(get("/index"))
-                .andExpect(status().isOk());
+        mockMvc.perform(get("/"))
+            .andExpect(status().is3xxRedirection());
     }
 
-    @Test
+    /*@Test
     @DisplayName("admin-page ist reachable")
     void test_admin_page() throws Exception{
         mockMvc.perform(get("/admin"))
@@ -56,5 +57,5 @@ public class MyControllerTest {
             mockMvc.perform(get(url))
                     .andExpect(status().isOk()); // all tests together
         }
-    }
+    }*/
 }

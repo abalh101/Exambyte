@@ -2,7 +2,6 @@ package org.example.exambyte.applicationService;
 
 import org.example.exambyte.applicationService.repository.ExamTestRepository;
 import org.example.exambyte.domain.model.ExamTest;
-import org.example.exambyte.persestince.ExamTestDTO;
 
 import java.util.List;
 

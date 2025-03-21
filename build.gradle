@@ -38,6 +38,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'com.tngtech.archunit:archunit-junit5-engine:0.22.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // Security
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+
 }
 
 tasks.named('test') {
